@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faits Insolites - Random Facts</title>
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #38bdf8;
+            --text-color: #f1f5f9;
+            --text-muted: #94a3b8;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background-color: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            border: 1px solid #334155;
+        }
+
+        h1 {
+            color: var(--accent-color);
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .fact-box {
+            min-height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.25rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            border-left: 4px solid var(--accent-color);
+            background-color: rgba(56, 189, 248, 0.05);
+            border-radius: 0 8px 8px 0;
+        }
+
+        button {
+            background-color: var(--accent-color);
+            color: #0f172a;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+        }
+
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(56, 189, 248, 0.4);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        footer {
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>💡 Le Saviez-vous ?</h1>
+        <p class="subtitle">Cliquez ci-dessous pour découvrir un fait insolite !</p>
+        
+        <div class="fact-box" id="fact-container">
+            Chargement d'un fait incroyable...
+        </div>
+
+        <button onclick="showNewFact()">Un autre fait !</button>
+
+        <footer>
+            Projet créé pour le défi Goodwall x GitHub<br>
+            <strong>par Ebenezer MEZON</strong>
+        </footer>
+    </div>
+
+    <script>
+        const facts = [
+            "Le miel est le seul aliment qui ne se périme jamais. On a retrouvé du miel vieux de 3 000 ans dans des tombes égyptiennes, et il est toujours parfaitement comestible !",
+            "Les bananes sont botaniquement des baies, alors que les fraises ne le sont pas.",
+            "Les loutres de mer se tiennent la main pendant leur sommeil pour éviter de dériver et de se perdre en mer.",
+            "Le cœur d'une baleine bleue est si grand qu'un être humain pourrait nager dans ses artères principales.",
+            "Cléopâtre a vécu plus près de l'invention de l'iPhone (et du premier pas sur la Lune) que de la construction de la Grande Pyramide de Gizeh.",
+            "Le cri d'un canard ne produit pas d'écho, et personne ne sait vraiment pourquoi.",
+            "Les flamants roses ne sont pas nés roses. Ils naissent gris et deviennent roses à cause de leur alimentation riche en crevettes et en algues."
+        ];
+
+        function showNewFact() {
+            const randomIndex = Math.floor(Math.random() * facts.length);
+            document.getElementById('fact-container').innerText = facts[randomIndex];
+        }
+
+        // Afficher un premier fait au chargement
+        showNewFact();
+    </script>
+</body>
+</html>
